@@ -71,4 +71,28 @@ describe Homework3::FactoryMethod do
 
     it { expect(klass.multiply(10, 32)).to eq 320 }
   end
+
+  context 'stateless' do
+    let!(:klass_1) do
+      Class.new do
+        include Homework3::FactoryMethod[:cost]
+
+        def cost
+          40
+        end
+      end
+    end
+
+    let!(:klass_2) do
+      Class.new do
+        include Homework3::FactoryMethod
+
+        def cost
+          40
+        end
+      end
+    end
+
+    it { expect(klass_2).not_to respond_to(:cost) }
+  end
 end

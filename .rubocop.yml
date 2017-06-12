@@ -1,0 +1,10 @@
+AllCops:
+  TargetRubyVersion: 2.3.4
+Documentation:
+  Enabled: false
+Layout/DotPosition:
+  EnforcedStyle: trailing
+Layout/SpaceInsideStringInterpolation:
+  EnforcedStyle: space
+Metrics/BlockLength:
+  ExcludedMethods: ['describe', 'context']

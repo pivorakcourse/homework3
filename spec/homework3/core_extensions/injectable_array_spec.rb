@@ -24,6 +24,12 @@ describe Homework3::CoreExtensions::InjectableArray do
       array.simple_inject(0) { |result, x| result + x }
     end
 
+    it 'does not receive #reduce' do
+      expect(array).not_to receive(:reduce)
+
+      array.simple_inject(0) { |result, x| result + x }
+    end
+
     it 'is not implemented via alias' do
       expect(array.method(:simple_inject).original_name).not_to eq(:inject)
     end
@@ -51,7 +57,7 @@ describe Homework3::CoreExtensions::InjectableArray do
 
     specify do
       expect(
-        %w[cat sheep bear].inject do |memo, word|
+        %w[cat sheep bear].simple_inject do |memo, word|
           memo.length > word.length ? memo : word
         end
       ).to eq 'sheep'

@@ -15,4 +15,7 @@ describe Homework3::CoreExtensions::EnumerableFriendlyString do
   specify { expect(%w[1 2].map(&'to_i')).to match_array [1, 2] }
   specify { expect([1, 2].any?(&'nil?')).to be false }
   specify { expect([nil, nil].all?(&'nil?')).to be true }
+  specify { expect([1, 2, 3, 4, 5].inject(&'+')).to eq 15 }
+  specify { expect([1, 2, 3, 4, 5].map(&'to_s')).to match_array %w[1 2 3 4 5] }
+  specify { expect([].map(&'to_i')).to match_array [] }
 end

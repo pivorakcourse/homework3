@@ -2,7 +2,7 @@
 
 module Homework3
   module Extender
-    def self.call(object, interface)
+    def self.call(_object, _interface)
       # put your code here
     end
   end
